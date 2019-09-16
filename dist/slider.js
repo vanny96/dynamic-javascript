@@ -81,19 +81,19 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = "./src/index.js");
+/******/ 	return __webpack_require__(__webpack_require__.s = "./src/slider.js");
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ "./src/index.js":
-/*!**********************!*\
-  !*** ./src/index.js ***!
-  \**********************/
+/***/ "./src/slider.js":
+/*!***********************!*\
+  !*** ./src/slider.js ***!
+  \***********************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-eval("const menuButton = document.getElementById(\"menu\");\r\nconst menuDropDown = document.querySelector(\"ul.menu-dropdown\");\r\n\r\nfunction sleep(ms) {\r\n    return new Promise(resolve => setTimeout(resolve, ms));\r\n}\r\n\r\nconst menuDropDownHeight = menuDropDown.clientHeight;\r\nmenuDropDown.style.height= 0;\r\n\r\nmenuButton.addEventListener(\"click\", async function(e){\r\n    e.preventDefault();\r\n\r\n    if(!menuDropDown.classList.contains(\"active\")){\r\n        menuDropDown.classList.remove(\"deactive\");\r\n        menuDropDown.classList.add(\"active\");\r\n    \r\n        for(let i = 0; i<=menuDropDownHeight; i+=3){\r\n            if(i<=menuDropDownHeight-3){\r\n                menuDropDown.style.height = `${i}px`;\r\n                await sleep(1);\r\n            } else {\r\n                menuDropDown.style.height = `${menuDropDownHeight}px`;\r\n            }\r\n        }\r\n    } else {\r\n        menuDropDown.classList.remove(\"active\");\r\n        menuDropDown.classList.add(\"deactive\");\r\n    \r\n        for(let i = menuDropDownHeight; i>=0; i-=3){\r\n\r\n            if(i>=3){\r\n                menuDropDown.style.height = `${i}px`;\r\n                await sleep(1);\r\n            } else {\r\n                menuDropDown.style.height = 0;\r\n            }\r\n        }\r\n    }\r\n})\r\n\r\n\r\n\n\n//# sourceURL=webpack:///./src/index.js?");
+eval("const leftSlider = document.querySelector(\"div.slide-left\");\r\nconst rightSlider = document.querySelector(\"div.slide-right\");\r\n\r\nlet slides = document.getElementsByClassName(\"slide\");\r\n\r\nconst selectSlide = (index) => {\r\n    for(let i = 0; i < slides.length; i++){\r\n        let slide = slides[i];\r\n\r\n        slide.classList.remove(\"deselected\");\r\n        slide.classList.remove(\"selected\");\r\n\r\n        if(i === index){\r\n            slide.classList.add(\"selected\");\r\n        \r\n        } else {\r\n            slide.classList.add(\"deselected\");\r\n        }\r\n    }\r\n}\r\n\r\nconst returnSelectedSlide = () => {\r\n    for(let i = 0; i<slides.length; i++){\r\n        if(slides[i].classList.contains(\"selected\")){\r\n            return i;\r\n        }\r\n    }\r\n}\r\n\r\n\r\nleftSlider.addEventListener(\"click\", () => {\r\n    let index = returnSelectedSlide();\r\n    if(index != 0){\r\n        selectSlide(index-1);\r\n    } else {\r\n        selectSlide(slides.length-1);\r\n    }\r\n})\r\n\r\nrightSlider.addEventListener(\"click\", () => {\r\n    let index = returnSelectedSlide();\r\n    if(index != slides.length-1){\r\n        selectSlide(index+1);\r\n    } else {\r\n        selectSlide(0);\r\n    }\r\n})\r\n\n\n//# sourceURL=webpack:///./src/slider.js?");
 
 /***/ })
 

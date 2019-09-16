@@ -1,3 +1,8 @@
 module.exports = {
-    entry: "./src/index.js"
+    mode: 'development',
+    entry: {
+        main: "./src/index.js",
+        slider: "./src/slider.js"
+    }
 }
+

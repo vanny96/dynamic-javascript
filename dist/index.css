@@ -1,0 +1,28 @@
+button#menu{
+    padding: 10px 20px;
+}
+
+ul.menu-dropdown{
+    width: 150px;
+    padding: 0;
+    margin-top: 0; 
+    background: darkgray;
+    list-style: none;
+
+    /* dynamic */
+    overflow: hidden;
+}
+
+ul.menu-dropdown li{
+    border: 1px solid lightgray;
+    padding: 10px;
+}
+
+ul.menu-dropdown li:hover{
+    background: gray;
+}
+
+@keyframes active-animation{
+    from {height: 0;}
+    to {height: auto;}
+}

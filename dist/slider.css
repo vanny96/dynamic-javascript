@@ -1,0 +1,79 @@
+body{
+    margin: 0 100px;
+}
+
+.images{
+    position: relative;
+    height: 450px;
+}
+
+.image{
+    margin: 0 auto;
+    width: 100%;
+    height: 100%;
+}
+
+.image-1{
+    background: blue;
+}
+
+.image-2{
+    background: green;
+}
+
+.image-3{
+    background: red;
+}
+
+.image-4{
+    background: yellow;
+}
+
+.slide{
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+.slide-switch{
+    display: inline-block;
+    position: absolute;
+    background: gray;
+    width: 10%;
+    height: 100%;
+    opacity: 0.2;
+}
+
+.slide-switch:hover{
+    opacity: 0.5;
+}
+
+.slide-left{
+    left: 0;
+}
+
+.slide-right{
+    right: 0;
+}
+
+.deselected{
+    display: none;
+}
+
+.slide-bar{
+    margin-top: 5px; 
+    display: flex;
+    justify-content: center;
+    height: 100px;
+}
+
+.item{
+    margin: 15px;
+    background: darkblue;
+    height: 50px;
+    width: 50px;
+}
